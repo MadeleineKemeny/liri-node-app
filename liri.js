@@ -15,10 +15,6 @@ var searchTermArr = process.argv.slice(3);
 var searchTerm = searchTermArr.join(" ");
 
 
-
-
-
-
 if (action === "spotify-this-song") {
   spotify(searchTerm);
 }
@@ -69,7 +65,19 @@ axios.get("https://rest.bandsintown.com/artists/" + searchTerm + "/events?app_id
       console.log("date: "+formattedDate + "\n");
     };
   }
+).catch(function(err){
+  axios.get("https://rest.bandsintown.com/artists/rolling+stones/events?app_id=codingbootcamp").then(
+  function (response) {
+    for (i=0;i<response.data.length;i++){
+      console.log(response.data[i].venue.name)
+      console.log(response.data[i].venue.city + " ," + response.data[i].venue.country)
+      date=response.data[i].datetime.replace("T"," ");
+      formattedDate=moment(date).format("MM/DD/YYYY");
+      console.log("date: "+formattedDate + "\n");
+    };
+  }
 )
+})
 
 }
 
@@ -87,7 +95,19 @@ function movie(searchTerm) {
     console.log("Actors: "+response.data.Actors);
 
 }).catch(function(err){
-  console.log("error");
+  axios.get("http://www.omdbapi.com/?t=mr.nobody&y=&plot=short&apikey=trilogy").then(
+    function(response) {
+    console.log("You might like Mr. Nobdy! It's on Netflix.");
+    console.log("movie title: "+response.data.Title);
+    console.log("year of release: "+response.data.Year);
+    console.log("IMDB rating: "+response.data.Ratings[0].Value);
+    console.log("Rotten Tomatoes: "+response.data.Ratings[1].Value);
+    console.log("Country: "+response.data.Country);
+    console.log("Language: "+response.data.Language);
+    console.log("Plot: "+response.data.Plot);
+    console.log("Actors: "+response.data.Actors);
+
+})
 })
 }
 
