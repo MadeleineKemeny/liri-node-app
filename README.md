@@ -7,7 +7,7 @@ The user may input specific line commands:
 3. "movie-this"
 4. "do-what-i-say"
 
-Each of the first 3 commands should be follwed by a search term. The application then sends the information request to return the data in format as specificed. There are default settings if the user input is not found.
+Each of the first 3 commands should be follwed by a search term that is related to the command, eg, a song, a movie, a band. The application then sends the information request to return the data in format as specificed. There are default settings if the user input is not found.
 
 With the fourth command, the application calls on a separate file, "random.txt" to retrieve information which is then sent to Spotify.
 
