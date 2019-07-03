@@ -1,5 +1,5 @@
 # liri-node-app
-Liri is a student project to create a server-side CLI that responds to specific input. It calls information using the SPotify API, and with Axios, the APIs from OMBD, and Bands In Town.
+Liri is a student project to create a server-side CLI that responds to specific input. It calls information using the Spotify API, and with Axios, the APIs from OMBD and Bands In Town, and the JSON package to call separate files with search terms and keys.
 
 The user may input specific line commands:
 1. "spotify-this-song"
